@@ -6,10 +6,6 @@ dice (cubic dice) with faces labeled 1 through 9. Patrick and Claire roll their 
 the faces: the person with the highest total wins. What is the probability Pyramidal Patrick beats Cubic
 Claire? Round to seven decimal places.
 
-
-NOTE: Experiencing some rounding error around the millionth place decimal, possibly a slight mistake in the
-formula/algorithm.
-
 """
 import math
 
@@ -51,18 +47,15 @@ class AtypicalDice:
 		X: A tuple containing the data for dice set X. Formatted as (# of dice, # of sides). Both should be integers.
 		Y: A tuple containing the data for dice set Y. Formatted as (# of dice, # of sides). Both should be integers.
 		"""
-		min_outcome = min(X[0], Y[0])
-		max_outcome = max(X[0]*X[1], Y[0]*Y[1])
-
 		summation = 0
-		for t in range(min_outcome, max_outcome):
+		for t in range(Y[0], Y[1]*Y[0]+1):
 			p_Y_eq_t = AtypicalDice.pmf(t=t, n=Y[0], s=Y[1])
-			p_X_lt_t = 0
+			count_X_lt_t = 0
 
 			for x in range(X[0], t):
-				p_X_lt_t += AtypicalDice.pmf(t=x, n=X[0], s=X[1])
+				count_X_lt_t += AtypicalDice.count(t=x, n=X[0], s=X[1])
 
-			summation += p_Y_eq_t * p_X_lt_t
+			summation += p_Y_eq_t * count_X_lt_t / (X[1] ** X[0])
 
 		return summation
 
