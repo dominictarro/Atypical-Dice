@@ -9,4 +9,6 @@ Claire? Round to seven decimal places.
 ## Solutions
 - [C++](/atypicalDice.cpp)
 - [Fortran](/atypicalDice.f95)
+- [JavaScript](/atypicalDice.js)
 - [Python](/atypical_dice.py)
+
