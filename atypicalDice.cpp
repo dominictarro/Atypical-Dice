@@ -6,9 +6,7 @@ dice (cubic dice) with faces labeled 1 through 9. Patrick and Claire roll their 
 the faces: the person with the highest total wins. What is the probability Pyramidal Patrick beats Cubic
 Claire? Round to seven decimal places.
 
-
-NOTE: Experiencing some rounding error around the millionth place decimal, possibly a slight mistake in the
-formula/algorithm.
+NOTE: Experiencing a rounding error to 5 decimals.
 
 */
 #include <iostream>
@@ -75,12 +73,9 @@ long double prob_X_lt_Y(int *X, int *Y) {
     X: An array containing the data for dice set X. Formatted as (# of dice, # of sides). Both should be integers.
     Y: An array containing the data for dice set Y. Formatted as (# of dice, # of sides). Both should be integers.
     */
-    int min_outcome = min(X[0], Y[0]);
-    int max_outcome = max(X[0]*X[1], Y[0]*Y[1]);
-
     long double summation = 0.0;
 
-    for (int t=min_outcome; t < max_outcome; t++) {
+    for (int t=Y[0]; t < Y[0]*Y[1]; t++) {
         long double p_Y_eq_t = pmf(t, Y[0], Y[1]);
         long double p_X_lt_t = 0.0;
         for (int x=X[0]; x<t; x++) {
