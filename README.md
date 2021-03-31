@@ -8,5 +8,5 @@ Claire? Round to seven decimal places.
 
 ## Solutions
 - [C++](/atypicalDice.cpp)
-- [Fortran95](/atypicalDice.f95)
-- [Python 3](/atypical_dice.py)
+- [Fortran](/atypicalDice.f95)
+- [Python](/atypical_dice.py)
